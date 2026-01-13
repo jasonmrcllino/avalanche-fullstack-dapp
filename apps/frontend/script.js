@@ -80,7 +80,6 @@ if (window.ethereum) {
         } else {
             location.reload();
         }
-        console.log('Accounts changed:', accounts);
     });
 
     window.ethereum.on('chainChanged', () => {
