@@ -76,15 +76,17 @@ async function connectWallet() {
 if (window.ethereum) {
     window.ethereum.on('accountsChanged', (accounts) => {
         if (accounts.length > 0) {
-            connectWallet(); 
+            connectWallet();
+            alert("Account changed to " + shortenAddress(accounts[0]) + ". The page will reload.");
         } else {
             location.reload();
+            alert("No accounts available. The page will reload.");
         }
     });
 
     window.ethereum.on('chainChanged', () => {
         location.reload(); 
-        console.log('Chain changed');
+        alert("Network changed. The page will reload.");
     });
 }
 
