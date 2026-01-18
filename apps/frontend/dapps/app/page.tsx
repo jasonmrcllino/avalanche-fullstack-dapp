@@ -29,10 +29,10 @@ export default function Page() {
     type: null,
   });
 
-  //\INTEGRASI BACKEND (FETCH API)
+  //INTEGRASI BACKEND (FETCH API)
   const fetchFromBackend = async () => {
     try {
-      // GANTI URL INI dengan domain Railway kamu
+      // Fetch dari Backend API di Railway
       const response = await fetch('https://simple-dapp-api-docs.up.railway.app/blockchain/value');
       const data = await response.json();
       // Set nilai dari response
@@ -47,7 +47,7 @@ export default function Page() {
     fetchFromBackend();
   }, []);
 
-  //INTEGRASI TRANSACTION (WRITE CONTRACT) ---
+  //INTEGRASI TRANSACTION
   const { data: value, isLoading: isReading, refetch } = useReadContract({
     address: SIMPLE_STORAGE_ADDRESS,
     abi: SIMPLE_STORAGE_ABI,
@@ -65,7 +65,7 @@ export default function Page() {
     if (isConfirmed) {
       setToast({ message: 'Success! Value updated.', type: 'success' });
       refetch();          // Refresh data langsung dari Blockchain
-      fetchFromBackend(); // Refresh data dari Backend API (Task 1 & 2 Sync)
+      fetchFromBackend(); // Refresh data dari Backend API
       setInputValue('');
       setTimeout(() => setToast({ message: '', type: null }), 5000);
     }
