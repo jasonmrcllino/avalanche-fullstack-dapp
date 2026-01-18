@@ -33,7 +33,7 @@ export default function Page() {
   const fetchFromBackend = async () => {
     try {
       // GANTI URL INI dengan domain Railway kamu
-      const response = await fetch('https://simple-dapp-api-docs.up.railway.app');
+      const response = await fetch('https://simple-dapp-api-docs.up.railway.app/value');
       const data = await response.json();
       // Set nilai dari response
       setBackendValue(data.value?.toString() || data.toString());
