@@ -29,13 +29,13 @@ export default function Page() {
     type: null,
   });
 
-  // --- TASK 1: INTEGRASI BACKEND (FETCH API) ---
+  //\INTEGRASI BACKEND (FETCH API)
   const fetchFromBackend = async () => {
     try {
       // GANTI URL INI dengan domain Railway kamu
-      const response = await fetch('https://simple-dapp-api-docs.up.railway.app/simple-storage');
+      const response = await fetch('https://simple-dapp-api-docs.up.railway.app');
       const data = await response.json();
-      // Pastikan backend kamu mengembalikan objek seperti { value: ... }
+      // Set nilai dari response
       setBackendValue(data.value?.toString() || data.toString());
     } catch (error) {
       console.error("Gagal mengambil data dari Backend:", error);
